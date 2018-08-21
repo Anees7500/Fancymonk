@@ -1,0 +1,41 @@
+    <div style="height:60px; width:100%; background-color:#b71705; padding-top:10px; padding-right:10px; padding-bottom:10px;  position:fixed; top:0px; left:0px; z-index:15">
+        <div style="background-color:white; display:inline-block; padding:5px; padding-left:25px; margin-left:-20px; width:200px; transform:skew(-45deg)">
+            <img src="image/icon.png" alt="logo" height="30" style="transform:skew(45deg)">
+        </div>
+    </div>
+<div  style="position:relative; height:100% width:100%;">
+	<div class="sidebar">
+		<div class="add_menu">Add menu</div>
+		<div ng-repeat="item in food">
+			<div ng-repeat="(key, value) in item track by $index">
+				<div ng-click="show_[$index] = !show_[$index]" class="card list_style icon">{{key}}  
+					<span ng-class=" show_[$index] ? 'icon-up' : 'icon-down' "></span>
+				</div>
+				<ul ng-show="show_[$index]" ng-repeat="(ke, va) in value">
+					<li ng-repeat="(k, v) in va" ng-click="showItem(v)" class="card list_style">{{k}}</li>
+				</ul>
+			</div>
+		</div>
+		<button class="btn btn-default btn-block" ng-click="addTable()"><i class="glyphicon glyphicon-plus"></i>Add Table</button>
+	</div>
+	<div class="right-side">
+			
+			<div class="col-md-12 card row restaurant_card">
+				<div>{{dataset.restaurentName}}</div>
+				<div> Location : {{dataset.location}}</div>	
+				<div> Cuisine : {{dataset.cuisine}}</div>
+				<div>Cost for two : {{dataset.costForTwo}}</div>
+				<div>Table Count: {{dataset.tableCount}}</div>
+				<div>{{dataset.type}}</div>
+			</div>
+
+			<div class="col-md-12 card row" ng-show="selectedType.length">
+				<ul>
+					<li ng-repeat="s in selectedType">
+						<span>{{s.name}}</span>
+						<span>{{s.price}}</span>
+					</li>
+				</ul>
+			</div>
+	</div>
+</div>

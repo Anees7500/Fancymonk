@@ -1,0 +1,31 @@
+    <div style="height:60px; width:100%; background-color:#b71705; padding-top:10px; padding-right:10px; padding-bottom:10px;  position:fixed; top:0px; left:0px; z-index:15">
+        <div style="background-color:white; display:inline-block; padding:5px; padding-left:25px; margin-left:-20px; width:200px; transform:skew(-45deg)">
+            <img src="image/icon.png" alt="logo" height="30" style="transform:skew(45deg)">
+        </div>
+    </div>
+<div style="position:relative; height:100% width:100%;">
+	<div class="sidebar">
+		<div class="text-center"><img class="img-left" src="image/usr.png">
+            <div style="color:white;">Admin</div>
+        </div>
+		<div class="" style="margin-top:10px;">
+            
+			<button class="btn btn-default btn-block" ng-click="logout()"><i class="glyphicon glyphicon-off"></i>Logout</button>
+			
+			<button class="btn btn-default btn-block" ng-click="addDashboard()"><i class="glyphicon glyphicon-plus"></i>Add Dashboard</button>
+		</div>
+	</div>
+	<div class="right-side">
+	
+		<div ng-repeat="item in data track by $index" class="col-md-4" ng-click="restaurantDetail(item, $index)">
+			<div class="col-md-12 card row restaurant_card ">
+				<div>{{item.restaurentName}}</div>
+				<div>Location : {{item.location}}</div>
+				<div>Cuisine : {{item.cuisine}}</div>
+				<div>Cost for two : {{item.costForTwo}}</div>
+				<div>Table Count: {{item.tableCount}}</div>
+				<div>{{item.type}}</div>
+			</div>
+		</div>
+	</div>
+</div>
